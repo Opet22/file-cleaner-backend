@@ -110,7 +110,7 @@ app.post("/scanFolder", (req, res) => {
   res.json({ threats });
 });
 
-// ✅ Dummy Scan
+// ✅ Dummy Scan Endpoint
 app.get("/scan", (req, res) => {
   res.json({
     status: "ok",
@@ -125,7 +125,8 @@ app.post("/clearHistory", (req, res) => {
   res.json({ status: "cleared" });
 });
 
-// ✅ Start server
-app.listen(5000, () => {
-  console.log("🚀 Backend running at http://localhost:5000");
+// ✅ Start server (IMPORTANT for Render)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running on port ${PORT}`);
 });
